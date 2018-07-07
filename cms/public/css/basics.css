@@ -1,0 +1,9 @@
+.lmsz .form-control,.lmxg .form-control,.addcontent .form-control{
+    width:40%;
+}
+th,td{
+    text-align: center;
+}
+th{
+    font-weight: bold;
+}

@@ -1,0 +1,52 @@
+{% extends 'main1.html' %}
+{% block content %}
+
+<ol class="breadcrumb">
+    <li><a href="#">首页</a></li>
+    <li class="active">{{title}}</li>
+</ol>
+
+
+<div class="container lmsz">
+    <form class="form-horizontal"  enctype="multipart/form-data" >
+        <div class="form-group">
+            <label for="sjlm" class="col-sm-3 control-label">上级栏目：</label>
+            <div class="col-sm-9">
+                <select id="sjlm" class="form-control">
+                    <option value ="0">顶级栏目</option>
+                    {% for content in data %}
+                    <option value ="{{content.id}}">{{content.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lmmc" class="col-sm-3 control-label">栏目名称：</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="lmmc">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lj" class="col-sm-3 control-label">链接：</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="lj">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lmxs" class="col-sm-3 control-label">是否在栏目显示：</label>
+            <div class="col-sm-9">
+                <select id="lmxs" class="form-control">
+                    <option value ="1">是</option>
+                    <option value ="0">否</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="button" class="btn btn-danger">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

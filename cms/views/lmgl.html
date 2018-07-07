@@ -1,0 +1,42 @@
+{% extends 'main1.html' %}
+{% block content %}
+<ol class="breadcrumb">
+    <li><a href="/admin">首页</a></li>
+    <li class="active">{{title}}</li>
+</ol>
+<div class="container lmgl">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>上级栏目ID</th>
+                <th>栏目名称</th>
+                <th>栏目连接</th>
+                <th>是否显示</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in data %}
+            <tr>
+                <td>{{content.parent_id}}</td>
+                <td>{{content.name}}</td>
+                <td>{{content.href}}</td>
+                {% if content.in_menu=='1' %}
+                <td>是</td>
+               {% endif %}
+                {% if content.in_menu=='0' %}
+                <td>否</td>
+                {% endif %}
+                <td>{{content.create_by}}</td>
+                <td>
+                    <a href="/admin/lmgl/xg?parentId={{content.id}}">修改</a>
+                    <a href="javascript:;" class="del" name="{{content.id}}">删除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
